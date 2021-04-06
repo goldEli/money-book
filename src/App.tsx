@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import logo from "./logo.svg";
 import PriceList from "./components/PriceList";
+import ViewTab from "./components/ViewTab";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <ViewTab activeTab="list" onTabChange={() => {}} />
       <PriceList
         onDeleteItem={() => {}}
         onModifyItem={() => {}}
