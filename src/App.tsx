@@ -4,13 +4,21 @@ import logo from "./logo.svg";
 import PriceList from "./components/PriceList";
 import ViewTab from "./components/ViewTab";
 import TotalPrice from "./components/TotalPrice";
+import MonthPicker from "./components/MonthPicker";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header row">
         <img src={logo} className="App-logo" alt="logo" />
-        <TotalPrice income={1000} outcome={1000} />
+        <div className="row col-12">
+          <div className="col-6">
+            <MonthPicker  year={2018} month={2}/>
+          </div>
+          <div className="col-6">
+            <TotalPrice income={1000} outcome={1000} />
+          </div>
+        </div>
       </header>
       <ViewTab activeTab="list" onTabChange={() => {}} />
       <PriceList
