@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
+import "./App.css";
 import logo from './logo.svg';
-import './App.css';
+import PriceList from "./components/PriceList";
 
 function App() {
   return (
@@ -19,6 +20,26 @@ function App() {
           Learn React
         </a>
       </header>
+      <PriceList
+        onDeleteItem={() => {}}
+        onModifyItem={() => {}}
+        items={[
+          {
+            id: 1,
+            title: "Trivel to Japan",
+            price: 200,
+            date: "2018-09-10",
+            category: { id: "1", type: "outcome", name: "outcome" },
+          },
+          {
+            id: 2,
+            title: "Trivel to Hongkong",
+            price: 200,
+            date: "2018-09-10",
+            category: { id: "1", type: "outcome", name: "outcome" },
+          },
+        ]}
+      />
     </div>
   );
 }
