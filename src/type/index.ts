@@ -5,6 +5,7 @@ export interface IPriceListItem {
   date: string;
   category: {
     id: string;
+    icon: string;
     name: "outcome" | "incone";
     type: "outcome" | "incone";
   };

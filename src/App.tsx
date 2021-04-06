@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import logo from './logo.svg';
+import logo from "./logo.svg";
 import PriceList from "./components/PriceList";
 
 function App() {
@@ -29,14 +29,24 @@ function App() {
             title: "Trivel to Japan",
             price: 200,
             date: "2018-09-10",
-            category: { id: "1", type: "outcome", name: "outcome" },
+            category: {
+              id: "1",
+              type: "outcome",
+              name: "outcome",
+              icon: "ios-plane",
+            },
           },
           {
             id: 2,
             title: "Trivel to Hongkong",
             price: 200,
             date: "2018-09-10",
-            category: { id: "1", type: "outcome", name: "outcome" },
+            category: {
+              id: "1",
+              type: "outcome",
+              name: "outcome",
+              icon: "ios-plane",
+            },
           },
         ]}
       />
