@@ -37,21 +37,29 @@ const items: IPriceListItem[] = [
 
 const Home: React.FC<IHomeProps> = (props) => {
   return (
-    <div className="App">
-      <header className="App-header row">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="row col-12">
-          <div className="col-6">
+    <>
+      <header className="App-header">
+        <div className="row mb-5">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+        <div className="row">
+          <div className="col">
             <MonthPicker year={2018} month={2} />
           </div>
-          <div className="col-6">
+          <div className="col">
             <TotalPrice income={1000} outcome={1000} />
           </div>
         </div>
       </header>
-      <ViewTab activeTab="list" onTabChange={() => {}} />
-      <PriceList onDeleteItem={() => {}} onModifyItem={() => {}} items={items} />
-    </div>
+      <div className="content-area py-3 px-3">
+        <ViewTab activeTab="list" onTabChange={() => {}} />
+        <PriceList
+          onDeleteItem={() => {}}
+          onModifyItem={() => {}}
+          items={items}
+        />
+      </div>
+    </>
   );
 };
 
