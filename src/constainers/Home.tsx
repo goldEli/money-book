@@ -1,4 +1,5 @@
 import React from "react";
+import CreateBtn from "src/components/CreateBtn";
 import MonthPicker from "src/components/MonthPicker";
 import PriceList from "src/components/PriceList";
 import TotalPrice from "src/components/TotalPrice";
@@ -53,6 +54,7 @@ const Home: React.FC<IHomeProps> = (props) => {
       </header>
       <div className="content-area py-3 px-3">
         <ViewTab activeTab="list" onTabChange={() => {}} />
+        <CreateBtn />
         <PriceList
           onDeleteItem={() => {}}
           onModifyItem={() => {}}
