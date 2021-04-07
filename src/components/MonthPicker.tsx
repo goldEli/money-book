@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React from "react";
 import { range } from "src/utils";
 
@@ -30,12 +31,27 @@ const MonthPicker: React.FC<IMonthPickerProps> = (props) => {
         <div className="row">
           <div className="col border-end">
             {yearRange.map((item) => {
-              return <a className="dropdown-item">{`${item}年`}</a>;
+              return (
+                <a
+                  key={item.toString()}
+                  href="#"
+                  className={classNames("dropdown-item", {
+                    active: item === props.year,
+                  })}
+                >{`${item}年`}</a>
+              );
             })}
           </div>
           <div className="col">
             {monthRange.map((item) => {
-              return <a className="dropdown-item">{`${item}月`}</a>;
+              return (
+                <a
+                  key={item.toString()}
+                  className={classNames("dropdown-item", {
+                    active: item === props.month,
+                  })}
+                >{`${item}月`}</a>
+              );
             })}
           </div>
         </div>
