@@ -1,5 +1,10 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import PriceList from "../PriceList";
 import { ICategorys, IPriceListItem } from "src/type";
@@ -60,12 +65,16 @@ describe("test PriceList component", () => {
   });
   it("should render correct price items length", () => {});
   it("should render correct icon and price for each item", () => {});
-  it("should trigger the correct delete callback", async () => {
-    const firstItem = container.firstChild?.firstChild;
-    const deleteBtn = firstItem?.lastChild;
+  it("should trigger the correct function callback", async () => {
+    let firstItem = container.firstChild?.firstChild;
+    let deleteBtn = firstItem?.lastChild;
+    let modifyBtn = firstItem?.childNodes[4]
 
     deleteBtn && userEvent.click(deleteBtn);
+    modifyBtn && userEvent.click(modifyBtn);
 
     expect(props.onDeleteItem).toHaveBeenCalledWith(itemsWithCatepory[0]);
+    expect(props.onModifyItem).toHaveBeenCalledWith(itemsWithCatepory[0]);
+
   });
 });
