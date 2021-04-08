@@ -5,6 +5,7 @@ import { range } from "src/utils";
 interface IMonthPickerProps {
   year: number;
   month: number;
+  onChange: (num: number, key: "year" | "month") => void;
 }
 
 const MonthPicker: React.FC<IMonthPickerProps> = (props) => {
@@ -33,6 +34,10 @@ const MonthPicker: React.FC<IMonthPickerProps> = (props) => {
             {yearRange.map((item) => {
               return (
                 <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    props.onChange(item, "year");
+                  }}
                   key={item.toString()}
                   href="#"
                   className={classNames("dropdown-item", {
@@ -46,6 +51,10 @@ const MonthPicker: React.FC<IMonthPickerProps> = (props) => {
             {monthRange.map((item) => {
               return (
                 <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    props.onChange(item, "month");
+                  }}
                   key={item.toString()}
                   className={classNames("dropdown-item", {
                     active: item === props.month,

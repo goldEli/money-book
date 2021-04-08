@@ -5,3 +5,11 @@ export const range = (size: number, start: number) => {
   }
   return res;
 };
+
+export const parseToYearAndMonth = (str?: string) => {
+  const date = str ? new Date(str) : new Date();
+  return {
+    year: date.getFullYear(),
+    month: date.getMonth(),
+  };
+};

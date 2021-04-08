@@ -1,16 +1,23 @@
 import React from "react";
 import classnames from "classnames";
 import Ionicon from "react-ionicons";
+import { ListView } from "src/type";
 
 interface IViewTabProps {
-  activeTab: "list" | "charts";
-  onTabChange: (cur: "list" | "charts") => void;
+  activeTab: ListView;
+  onTabChange: (cur: ListView) => void;
 }
 
 const ViewTab: React.FC<IViewTabProps> = (props) => {
   return (
     <ul className="nav nav-tabs nav-fill my-4">
-      <li className="nav-item">
+      <li
+        className="nav-item"
+        onClick={(e) => {
+          e.preventDefault();
+          props.onTabChange("list");
+        }}
+      >
         <a
           className={classnames("nav-link", {
             active: props.activeTab === "list",
@@ -26,7 +33,13 @@ const ViewTab: React.FC<IViewTabProps> = (props) => {
           列表模式
         </a>
       </li>
-      <li className="nav-item">
+      <li
+        className="nav-item"
+        onClick={(e) => {
+          e.preventDefault();
+          props.onTabChange("charts");
+        }}
+      >
         <a
           className={classnames("nav-link", {
             active: props.activeTab === "charts",

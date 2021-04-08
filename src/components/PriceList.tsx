@@ -1,11 +1,11 @@
 import React from "react";
-import { IPriceListItem } from "src/type";
+import { IPriceListItemWithCategory } from "src/type";
 import Ionicon from "react-ionicons";
 
 interface IPriceListProps {
-  items: IPriceListItem[];
-  onModifyItem: (item?: IPriceListItem) => void;
-  onDeleteItem: (item?: IPriceListItem) => void;
+  items: IPriceListItemWithCategory[];
+  onModifyItem: (item: IPriceListItemWithCategory) => void;
+  onDeleteItem: (item: IPriceListItemWithCategory) => void;
 }
 
 const PriceList: React.FC<IPriceListProps> = (props) => {
@@ -28,10 +28,16 @@ const PriceList: React.FC<IPriceListProps> = (props) => {
             </span>
             <span className="col-5">{item.title}</span>
             <span className="col-2 fw-bold">{`${
-              item.category.type === "incone" ? "+" : "-" + item.price
+              item.category.type === "income" ? "+" : "-" + item.price
             }元`}</span>
             <span className="col-2">{item.date}</span>
-            <a onClick={() => props.onModifyItem(item)} className="col-1">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                props.onModifyItem(item);
+              }}
+              className="col-1"
+            >
               <Ionicon
                 className="rounded-circle badge bg-secondary"
                 fontSize={"30px"}
@@ -40,7 +46,13 @@ const PriceList: React.FC<IPriceListProps> = (props) => {
                 icon="ios-create-outline"
               />
             </a>
-            <a onClick={() => props.onDeleteItem(item)} className="col-1">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                props.onDeleteItem(item);
+              }}
+              className="col-1"
+            >
               <Ionicon
                 className="rounded-circle badge bg-danger"
                 fontSize={"30px"}
